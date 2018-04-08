@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FavCode54</title>
+</head>
+
+<!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/css/uikit.min.css" />
+
+<!-- UIkit JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit-icons.min.js"></script>
+
+
+<style>
+
+    *{
+        padding:0;
+        margin: 0;
+    }
+
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.5);
+            display: flex;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            position: relative;
+        }
+
+        #editor {
+            position: relative;
+           
+            height: 80vh;
+        }
+
+        .form-wrapper {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button {
+            padding: 10px 55px;
+            margin-top: 10px;
+            background: black;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+    .sidebar{
+        width: 360px;
+        background-color: white;
+        border-radius: 0 10px 0 10px;
+        border: solid 1px;
+        box-shadow: 1px 1px 2px red;
+    }
+
+    .logo{
+    max-height: 2em;
+    margin: 0.5em;
+    max-width: none;
+    }
+    .title {
+        font-size: 2em;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+        
+</style>
+<body>
+
+<nav class="uk-navbar-container uk-margin" uk-navbar>
+    <div class="uk-navbar-left">
+
+        <a class="uk-navbar-item uk-logo" href="#"><img src="https://favcode54.org/images/favcode54-logo.png" class="logo"/></a>
+
+        <ul class="uk-navbar-nav">
+            <li>
+                
+            </li>
+        </ul>
+
+
+    </div>
+</nav>
+
+<div class="uk-flex uk-flex-around">
+    <div class="uk-card uk-width-1-6 uk-card-default uk-card-body uk-margin-left ">
+                    <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+                
+                <li class="uk-nav-header">Quick Links</li>
+                <li>
+                    <a href="#" id="generate">
+                        <span class="uk-margin-small-right" uk-icon="icon: table"></span> Generate PDF</a>
+                </li>
+                <li>
+                    <a href="#" id="reset">
+                        <span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Reset to Default</a>
+                </li>
+                <li class="uk-nav-divider"></li>
+                <li>
+                    <a href="#" id="clear">
+                        <span class="uk-margin-small-right" uk-icon="icon: trash"></span> Clear</a>
+                </li>
+            </ul>
+       
+        
+    </div>
+  
+ <div id="editor"  class="uk-card uk-width-5-6 uk-card-default uk-card-body" name="json">
+
+
+</div>
+
+</div>
+
+</body>
+<script src="/assets/js/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+          
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.session.setMode("ace/mode/json"); 
+    var sample = ` {
+        "firstname": "Favour",
+        "lastname": "Ori",
+        "contact": {
+            "email": "favourori96@gmail.com",
+            "phone": "(870) 949-1574",
+            "website": "www.favourori.com",
+            "linkedin": "linkedin.com/in/favourori/",
+            "github": "github.com/orifavour"
+        },
+        "skills": {
+            "details": [
+                {
+                    "type": "Programming Languages",
+                    "items": [
+                        "Java",
+                        "Swift",
+                        "Python",
+                        "Javascript",
+                        "PHP",
+                        "Ruby",
+                        "Rails"
+                    ]
+                },
+                {
+                    "type": "Web Frameworks",
+                    "items": [
+                        "Bootstrap",
+                        "Materialize",
+                        "Rails"
+                    ]
+                },
+                {
+                    "type": "Databases",
+                    "items": [
+                        "MySQL",
+                        "SQLite"
+                    ]
+                },
+                {
+                    "type": "Tools",
+                    "items": [
+                        "Git",
+                        "Sketch",
+                        "Github",
+                        "Craft by Invision",
+                        "Andriod Studio",
+                        "Xcode"
+                    ]
+                },
+                {
+                    "type": "Interests",
+                    "items": [
+                        "Software Development",
+                        "Web Development",
+                        "Machine Learning",
+                        "Internet of Things"
+                    ]
+                }
+            ]
+        },
+        "github_projects": {
+            "items": [
+                {
+                    "project_name": "Bethel Church (App Backend)",
+                    "tagline": "[iOS App Admin](https://github.com/orifavour/BethelChurchiOSAppBackend)",
+                    "description": [
+                        "Desktop App (developed in Java) for managing & controlling the content of Bethel's Mobile App"
+                    ],
+                    "technology_used": {
+                        "tools": [
+                            "Java",
+                            "PHP",
+                            "MySQL"
+                        ]
+                    }
+                },
+                {
+                    "project_name": "SAU Honors College",
+                    "tagline": "[iOS App ](https://github.com/orifavour/iOSHonorsCollege)",
+                    "description": [
+                        "iOS App designed for SAU Honors College  to improve the mobile experience of students, faculty, and friends of the college."
+                    ],
+                    "technology_used": {
+                        "tools": [
+                            "Swift",
+                            "Xcode"
+                        ]
+                    }
+                }
+            ]
+        },
+        "other_projects": {
+            "items": [
+                {
+                    "headline": "iOS App – Bethel Church, Magnolia",
+                    "points": [
+                        "Designed an iOS app for Bethel Church, to reduce printing of bulletins, and to let members have direct access to podcasts, upcoming events etc."
+                    ],
+                    "technology_used": {
+                        "tools": [
+                            "Swift",
+                            "MySQL",
+                            "PHP"
+                        ]
+                    }
+                },
+                {
+                    "headline": "Course Selector – Computer Science Dept. SAU",
+                    "points": [
+                        "Web App for seamless course selection and registration"
+                    ],
+                    "technology_used": {
+                        "tools": [
+                            "HTML5",
+                            "CSS3",
+                            "PHP",
+                            "MySQL"
+                        ]
+                    }
+                }
+            ]
+        },
+        "work_experience": {
+            "items": [
+                {
+                    "title": "Software Developer",
+                    "organisation": "Southern Arkansas University",
+                    "location": "Magnolia, AR",
+                    "from": "January 2017",
+                    "to": "Present",
+                    "details": [
+                        "Working closely with my professors on various researches & projects"
+                    ],
+                    "technology_used": {
+                        "tools": [
+                            "Xcode",
+                            "Swift",
+                            "Java",
+                            "HTML5",
+                            "CSS3",
+                            "PHP"
+                        ]
+                    }
+                }
+            ]
+        },
+        "involvement": {
+            "organizations": [
+                "Volunteer, Magnolia Blossom, OCT 2016"
+            ]
+        },
+        "education": {
+            "schools": [
+                {
+                    "degree": "Bachelor of Science",
+                    "major": "Computer Science",
+                    "institution": "Southern Arkansas University",
+                    "graduation_year": 2020
+                }
+            ]
+        },
+        "research_experience": {
+            "items": [
+                {
+                    "title": "Web Hacking",
+                    "organisation": "National Collegiate Honors Council",
+                    "from": "February 2017",
+                    "to": "April 2017",
+                    "points": [
+                        "Implemented encryption methods (MD5 and SHA-1)to secure a previously unsecure Web App"
+                    ]
+                }
+            ]
+        }
+    }
+`;
+    editor.setValue(sample);
+
+
+    // Var Declaration 
+    var form = document.getElementById('json_form');
+    var container = document.getElementById('page-wrap');
+    var reset = document.getElementById('reset');
+    var clear = document.getElementById('clear');
+    var generate = document.getElementById('generate');
+
+    // Event Listener
+    reset.addEventListener('click', handleReset);
+    clear.addEventListener('click', handleClear);
+    generate.addEventListener('click', handleSubmit);
+
+
+
+
+function handleReset (e){
+     e.preventDefault();
+    editor.setValue(sample); 
+}
+    function handleClear(e) {
+        e.preventDefault();
+        editor.setValue("");
+    }
+
+
+    function handleSubmit(e) {
+        e.preventDefault();
+//det data from editor
+json = editor.getValue();
+        json = tryParseJSON(json);
+
+console.log(222);
+
+
+        if (json) {
+            data = json;
+            //send to serve
+            const options = {
+                method: "POST",
+                body: JSON.stringify(json),
+                headers: new Headers({
+                'Accept': 'application/json',
+                    "Content-Type": "application/json"
+                })
+            };
+
+            fetch("http://favcode54.herokuapp.com/generate", options)
+                 .then((response) => response.json())
+                .then((response) => {
+                    window.open(response.filename, '_blank');
+                    console.log('done');
+                })
+                .catch((err) => console.log("Oops, error :("));
+
+           
+        }
+        else {
+
+        }
+
+
+    }
+
+
+      function tryParseJSON(jsonString) {
+          console.log(2)
+        try {
+            var json = JSON.parse(jsonString);
+            if (json && typeof json === "object") {
+                return json;
+            }
+        }
+        catch (e) { }
+
+        return false;
+    };
+
+    
+
+
+});
+
+
+
+    
+    
+
+</script>
+
+</html>
