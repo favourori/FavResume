@@ -53,7 +53,7 @@ var webpage = `
 		<p>
 			<strong>${key.type}:</strong> ${key.items.map(function (key) { return `${key}` }).join(', ')}` } ).join('</p>')}
 		</div>
-	<h4 class="">GITHUB PROJECTS</h4>
+	<h4 class="">RECENT PROJECTS</h4>
 	<div class="offset-2">
 
 
