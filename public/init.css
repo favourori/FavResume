@@ -1,0 +1,132 @@
+
+    *{
+        padding:0;
+        margin: 0;
+    }
+
+
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.5);
+            display: flex;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            position: relative;
+        }
+
+        #editor {
+            position: relative;
+           
+            height: 80vh;
+        }
+
+        .form-wrapper {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button {
+            padding: 10px 55px;
+            margin-top: 10px;
+            background: black;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+    .sidebar{
+        width: 360px;
+        background-color: white;
+        border-radius: 0 10px 0 10px;
+        border: solid 1px;
+        box-shadow: 1px 1px 2px red;
+    }
+
+    .logo{
+     max-height: 1.7em;
+    margin-top: 0.2em;
+    margin-bottom: 0.5em;
+    margin-right: 0.6em;
+    margin-left: 0.8em;
+    max-width: none;
+    }
+
+    #divider{
+        height:0.2em;
+    }
+
+    .title {
+        font-size: 2em;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .ash{
+        background-color:#C5C6CA;
+    }
+
+    .block-inline{
+    display:inline-block;
+    margin-right:4.1rem;
+}
+
+.top{
+    margin-top:20rem;
+}
+
+.btn-core{
+    padding-left:10rem;
+}
+
+#rent-btn{
+    background-color: #00ADEF;
+     width: 10rem !important;
+}
+
+#reg-btn{
+     background-color: #0062AB;
+     width: 10rem !important;
+}
+
+.carousel{
+    height:600px !important;
+}
+
+.responsive-imgx{
+    max-width: 100%;
+    height: auto;
+    margin-top: 5rem;
+}
+
+.responsive-videox{
+    max-width: 100%;
+    height: auto;
+    margin-top: 5rem;
+}
+
+ol li{
+    margin-bottom: 1.1rem;
+}
+.determinate{
+    width:20%;
+}
+@media only screen and (max-width: 600px) {
+ 
+ .top{
+    margin-top:3rem;
+}
+
+.block-inline{
+    display:inline-block;
+    margin-right:1.1rem;
+}
+
+.btn-core{
+    padding-left:8rem !important;
+}
+
+
+}

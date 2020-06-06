@@ -27,10 +27,19 @@ app.use(express.static(__dirname + "/../public"))
 //Routes
 
 
+
 app.get('/', (req, res) => {
+  res.render('app')
+});
+
+
+app.get('/home', (req, res) => {
   res.render('index')
 });
 
+app.get('/learn', (req, res) => {
+  res.render('learn')
+});
 
 app.post('/generate', (req, res) => {
   var data = req.body
@@ -53,7 +62,7 @@ var webpage = `
 		<p>
 			<strong>${key.type}:</strong> ${key.items.map(function (key) { return `${key}` }).join(', ')}` } ).join('</p>')}
 		</div>
-	<h4 class="">RECENT PROJECTS</h4>
+	<h4 class="">PERSONAL PROJECTS</h4>
 	<div class="offset-2">
 
 
@@ -79,7 +88,7 @@ var webpage = `
 	<div class="offset-2">
 		<p>
 			<strong class="title">${data.work_experience.items.map(function (key){ return `${key['title']}, ${key['organisation']}, ${key['location']}</b>
-				<span class="pull-right">January 2017 - Present</span>
+				<span class="pull-right">${key['from']} - ${key['to']}</span>
 			</strong>
 		</p>
 		<div class="offset-2 p">${key['details'][0]} Technologies: ${key['technology_used'].tools.map(function (item){ return item}).join(', ') }
@@ -87,7 +96,7 @@ var webpage = `
 	</div>` })}
 
 
-	<h4 class="">INVOLVEMENT</h4>
+	<h4 class="">INVOLVEMENTS</h4>
 	<div class="">
 		<ul class="boxed-list offset-2 p">
 			${data.involvement.organizations.map(function (key){ return `
@@ -141,7 +150,7 @@ var webpage = `
   var options = { format: 'A4' };
 
   //Reads the Base Template from the Views Folder
-  var template = hbs.compile(fs.readFileSync('././views/generate.hbs', 'utf8'));
+  var template = hbs.compile(fs.readFileSync('././views/gen.hbs', 'utf8'));
 
   //Proccessing the base template with the content
   var html = template({content:webpage})
