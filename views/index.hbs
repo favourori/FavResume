@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +8,17 @@
     <meta name="description" content="Favresume generator for Developers">
     <meta name="keywords" content="Tech job,developers resume,best resume app,favcode54,favresume">
     <meta name="theme-color" content="#DD2476">
-            <!-- Windows Phone -->
-        <meta name="msapplication-navbutton-color" content="#DD2476">
-        <!-- iOS Safari -->
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="#DD2476">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#DD2476">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#DD2476">
     <title>FavCode54</title>
 </head>
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
- <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 
 <!-- UIkit CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/css/uikit.min.css" />
@@ -26,50 +27,51 @@
 
 <body>
 
-<nav class="white">
-    <div class="nav-wrapper">
+    <nav class="white">
+        <div class="nav-wrapper">
 
-        <a href="/" class="brand-logo"><img src="https://favcode54.org/images/favcode54-logo.png" class="logo responsive-img"/></a>
+            <a href="/" class="brand-logo"><img src="https://favcode54.org/images/favcode54-logo.png"
+                    class="logo responsive-img" /></a>
+        </div>
+    </nav>
+
+
+
+
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large blue pulse">
+            <i class="large material-icons">mode_edit</i>
+        </a>
+        <ul>
+
+            <li><a class="btn tooltipped btn-floating red" data-position="left" data-tooltip="Download" id="generate"><i
+                        class="material-icons">get_app</i></a></li>
+
+            <li><a class="btn tooltipped btn-floating yellow darken-1" data-position="left" data-tooltip="Reset"
+                    id="reset"><i class="material-icons">refresh</i></a></li>
+
+            <li><a class="btn tooltipped btn-floating blue" data-position="left" data-tooltip="Clear" id="clear"><i
+                        class="material-icons">remove_circle_outline
+                    </i></a></li>
     </div>
-</nav>
 
-
-
-
-<div class="fixed-action-btn">
-     <a class="btn-floating btn-large blue pulse">
-    <i class="large material-icons">mode_edit</i>
-  </a>
-<ul>
-   
-<li><a class="btn tooltipped btn-floating red" data-position="left" data-tooltip="Download" id="generate"><i class="material-icons">publish</i></a></li>
-                   
-<li><a class="btn tooltipped btn-floating yellow darken-1" data-position="left" data-tooltip="Reset" id="reset"><i class="material-icons">refresh</i></a></li>  
-  
-  <li><a class="btn tooltipped btn-floating blue" data-position="left" data-tooltip="Clear" id="clear"><i class="material-icons">remove_circle_outline
-</i></a></li>      
-</div>
-  
-<div id="divider"></div>
-<div id="editor" class="uk-card uk-width-1-1 uk-card-default uk-card-body" name="json"></div>
-<a id="download_link" href="#" target="_blank" style="display:none"></a>
+    <div id="divider"></div>
+    <div id="editor" class="uk-card uk-width-1-1 uk-card-default uk-card-body" name="json"></div>
+    <a id="download_link" href="#" target="_blank" style="display:none"></a>
 
 </body>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <script type="text/javascript" src="init.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<script type="text/javascript" src="init.js"></script>
 <script src="/assets/js/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>
-   
+    document.addEventListener("DOMContentLoaded", function () {
 
-       
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/monokai");
-    editor.session.setMode("ace/mode/json"); 
-    var sample = ` {
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/monokai");
+        editor.session.setMode("ace/mode/json");
+        var sample = ` {
         "firstname": "Favour",
         "lastname": "Ori",
         "contact": {
@@ -246,153 +248,153 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 `;
-    editor.setValue(sample);
-
-
-  
-   function screen_resize() {
-    var h = parseInt(window.innerHeight);
-    var w = parseInt(window.innerWidth);
-    
-    desktop = $('.desktop a');
-    mobile = $('.mobile a');
-        
-
-    if(w <= 600) {
-        // set all data-id as id in all links ('a' elements) on mobile
-        $.each(mobile, function (index, item) {
-            id_val = $(item).data('id');
-            $(item).attr('id',id_val);
-            //console.log(id_val);
-        });
-        
-        // remove all data-id as id in all links ('a' elements) on desktop
-        $.each(desktop, function (index, item) {
-            $(item).removeAttr('id');
-        });
-
-        console.log('Resized window to mobile.');
-    } else {
-        // set all data-id as id in all links ('a' elements) on desktop
-        $.each(desktop, function (index, item) {
-            id_val = $(item).data('id');
-            $(item).attr('id', id_val);
-        });
-
-        // remove all data-id as id in all links ('a' elements) on mobile
-        $.each(mobile, function (index, item) {
-            $(item).removeAttr('id');
-        });
-        
-        console.log('Resized window to desktop.');
-    }
-    
-    // Var Declaration 
-    var form = document.getElementById('json_form');
-    var container = document.getElementById('page-wrap');
-    var reset = document.getElementById('reset');
-    var clear = document.getElementById('clear');
-    var generate = document.getElementById('generate');
-
-    // Event Listener
-    reset.addEventListener('click', handleReset);
-    clear.addEventListener('click', handleClear);
-    generate.addEventListener('click', handleSubmit);
-
-}
- // if window resize call responsive function
-$(window).resize(function(e) {
-    screen_resize();
-});
-
-
-screen_resize();
+        editor.setValue(sample);
 
 
 
+        function screen_resize() {
+            var h = parseInt(window.innerHeight);
+            var w = parseInt(window.innerWidth);
 
-function handleReset (e){
-     e.preventDefault();
-    editor.setValue(sample); 
-}
-    function handleClear(e) {
-        e.preventDefault();
-        editor.setValue("");
-    }
+            desktop = $('.desktop a');
+            mobile = $('.mobile a');
 
 
-    function handleSubmit(e) {
-        e.preventDefault();
-//det data from editor
-json = editor.getValue();
-        json = tryParseJSON(json);
+            if (w <= 600) {
+                // set all data-id as id in all links ('a' elements) on mobile
+                $.each(mobile, function (index, item) {
+                    id_val = $(item).data('id');
+                    $(item).attr('id', id_val);
+                    //console.log(id_val);
+                });
 
+                // remove all data-id as id in all links ('a' elements) on desktop
+                $.each(desktop, function (index, item) {
+                    $(item).removeAttr('id');
+                });
 
+                console.log('Resized window to mobile.');
+            } else {
+                // set all data-id as id in all links ('a' elements) on desktop
+                $.each(desktop, function (index, item) {
+                    id_val = $(item).data('id');
+                    $(item).attr('id', id_val);
+                });
 
-        if (json) {
-            data = json;
-            //send to serve
-            const options = {
-                method: "POST",
-                body: JSON.stringify(json),
-                headers: new Headers({
-                'Accept': 'application/json',
-                    "Content-Type": "application/json"
-                })
-            };
+                // remove all data-id as id in all links ('a' elements) on mobile
+                $.each(mobile, function (index, item) {
+                    $(item).removeAttr('id');
+                });
 
-            var temp = generate.innerHTML;
-            console.log('generating...');
-
-            fetch("/generate", options)
-                 .then((response) => response.json())
-                .then((response) => {
-                    if(response.filename) {
-
-                      generate.innerHTML = "Generated";
-
-                    }else {
-                        
-                        generate.innerHTML = "something went wrong";
-
-                    }
-                    window.document.location.href = response.filename;
-                  generate.innerHTML = temp;
-                    console.log('generated');
-                })
-                .catch((err) => console.log(err));
-
-           
-        }
-        else {
-
-        }
-
-
-    }
-
-
-      function tryParseJSON(jsonString) {
-          console.log('Parsed JSON Object Successfully.')
-        try {
-            var json = JSON.parse(jsonString);
-            if (json && typeof json === "object") {
-                return json;
+                console.log('Resized window to desktop.');
             }
+
+            // Var Declaration 
+            var form = document.getElementById('json_form');
+            var container = document.getElementById('page-wrap');
+            var reset = document.getElementById('reset');
+            var clear = document.getElementById('clear');
+            var generate = document.getElementById('generate');
+
+            // Event Listener
+            reset.addEventListener('click', handleReset);
+            clear.addEventListener('click', handleClear);
+            generate.addEventListener('click', handleSubmit);
+
         }
-        catch (e) { }
-
-        return false;
-    };
-
-      //function for screen resize
-
-    
+        // if window resize call responsive function
+        $(window).resize(function (e) {
+            screen_resize();
+        });
 
 
-});
+        screen_resize();
 
- 
+
+
+
+        function handleReset(e) {
+            e.preventDefault();
+            editor.setValue(sample);
+        }
+        function handleClear(e) {
+            e.preventDefault();
+            editor.setValue("");
+        }
+
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            //det data from editor
+            json = editor.getValue();
+            json = tryParseJSON(json);
+
+
+
+            if (json) {
+                data = json;
+                //send to serve
+                const options = {
+                    method: "POST",
+                    body: JSON.stringify(json),
+                    headers: new Headers({
+                        'Accept': 'application/json',
+                        "Content-Type": "application/json"
+                    })
+                };
+
+                var temp = generate.innerHTML;
+                console.log('generating...');
+
+                fetch("/generate", options)
+                    .then((response) => response.json())
+                    .then((response) => {
+                        if (response.filename) {
+
+                            generate.innerHTML = "Generated";
+
+                        } else {
+
+                            generate.innerHTML = "something went wrong";
+
+                        }
+                        window.document.location.href = response.filename;
+                        generate.innerHTML = temp;
+                        console.log('generated');
+                    })
+                    .catch((err) => console.log(err));
+
+
+            }
+            else {
+
+            }
+
+
+        }
+
+
+        function tryParseJSON(jsonString) {
+            console.log('Parsed JSON Object Successfully.')
+            try {
+                var json = JSON.parse(jsonString);
+                if (json && typeof json === "object") {
+                    return json;
+                }
+            }
+            catch (e) { }
+
+            return false;
+        };
+
+        //function for screen resize
+
+
+
+
+    });
+
+
 
 
 </script>
