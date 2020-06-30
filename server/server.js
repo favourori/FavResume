@@ -4,7 +4,6 @@ const bodyParser = require('body-parser')
 const hbs = require('hbs')
 var app = express()
 const port = process.env.PORT || 3000
-const request = require('request')
 const showdown = require('showdown')
 var cors = require('cors')
 

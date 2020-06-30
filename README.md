@@ -2,7 +2,7 @@
 
 SWE Resume Generator
 
-> When its time to apply for that awesome tech job,we got you covered. With just few lines of json we get you a professional resume in less than 30 seconds
+> When its time to apply for that awesome tech job, we got you covered. With just few lines of json we get you a professional resume in less than 30 seconds
 
 ## TODO
 
