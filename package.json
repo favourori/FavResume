@@ -20,6 +20,6 @@
     "html-pdf": "^2.2.0",
     "phantom": "^4.0.12",
     "phantomjs-prebuilt": "^2.1.13",
-    "showdown": "^1.8.6"
+    "showdown": "^1.9.1"
   }
 }
